@@ -2,6 +2,10 @@ require_relative 'bike'
 
 class DockingStation
   def release_bike
-  		Bike.new
+  	  Bike.new
+  end
+
+  def dock(i)
+
   end
 end
