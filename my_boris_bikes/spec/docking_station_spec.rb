@@ -16,10 +16,12 @@ describe DockingStation do
 		expect { subject.release_bike }.to raise_error "No bikes available"
 	end
 	it "Only working bikes should be released" do
-		subject.dock (Bike.new)
-		subject.dock ((Bike.new).report_broken)
-		bike = subject.release_bike
-		expect(bike.working?).to eq true
+		2.times{subject.dock (Bike.new)}
+		bike1 = subject.release_bike
+		bike1.report_broken
+		subject.dock (bike1)
+		bike2 = subject.release_bike
+		expect(bike2.working?).to eq true
 	end
   end
 

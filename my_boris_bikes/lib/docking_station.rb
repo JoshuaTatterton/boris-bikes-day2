@@ -12,8 +12,8 @@ class DockingStation
   end
 
   def release_bike
-  	fail "No bikes available" if empty?
-  	bike.pop
+  	bike.each { |x| if x.working?; return bike.delete(x) end }
+    fail "No bikes available" 
   end
 
   def dock(i)
