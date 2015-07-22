@@ -24,4 +24,7 @@ describe DockingStation do
   	end
   end
 
+  it "Has a default capacity" do
+  	expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
 end

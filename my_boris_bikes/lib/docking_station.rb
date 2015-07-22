@@ -1,6 +1,9 @@
 require_relative 'bike'
 
 class DockingStation
+
+  DEFAULT_CAPACITY = 20
+
   def initialize
   	@bike = []
   end
@@ -22,7 +25,7 @@ class DockingStation
   end
 
   def full?
-  	@bike.length >= 20
+  	@bike.length >= DEFAULT_CAPACITY
   end
 
 end
