@@ -7,6 +7,6 @@ class DockingStation
   end
 
   def dock(i)
-  	
+  	@bike = i
   end
 end
