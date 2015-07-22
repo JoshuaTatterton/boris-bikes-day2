@@ -15,6 +15,12 @@ describe DockingStation do
 	it "Raise error when no bikes available" do
 		expect { subject.release_bike }.to raise_error "No bikes available"
 	end
+	it "Only working bikes should be released" do
+		subject.dock (Bike.new)
+		subject.dock ((Bike.new).report_broken)
+		bike = subject.release_bike
+		expect(bike.working?).to eq true
+	end
   end
 
   describe "#dock" do
@@ -29,11 +35,13 @@ describe DockingStation do
   end
 
   # it { is_expected.to respond_to(:initialize).with(1).argument }
-  context 'let test be 50' do
-	let(:test){ 50 } 
+  	context 'let test be 50' do
+	  let(:test){ 50 } 
 	  subject(:large_capacity){DockingStation.new(test)}
 	  it 'should initialize with one argument' do
 	  expect(subject.capacity).to eq test
-  		end
+  	  end
 	end
+
+  
 end
