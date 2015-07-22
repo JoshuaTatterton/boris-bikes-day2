@@ -28,5 +28,12 @@ describe DockingStation do
   	expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
   end
 
-  it { is_expected.to respond_to(:initialize).with(1).argument}
+  # it { is_expected.to respond_to(:initialize).with(1).argument }
+  context 'let test be 50' do
+	let(:test){ 50 } 
+	  subject(:large_capacity){DockingStation.new(test)}
+	  it 'should initialize with one argument' do
+	  expect(subject.capacity).to eq test
+  		end
+	end
 end
